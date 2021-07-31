@@ -45,7 +45,7 @@ class DashBoard extends Component {
         <div>
           <h1>Starwars Planets Dashboard</h1>
         </div>
-        <BarChart />
+        <BarChart data={this.state.barChartData} />
         <Table />
       </div>
     )
