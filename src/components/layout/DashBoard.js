@@ -9,11 +9,8 @@ class DashBoard extends Component {
     super(props);
     this.state = {
       barChartData: [],
+      tableData: null
     }
-  }
-
-  componentDidMount() {
-    this.getBarChartDataFromAPI(API_PLANETS_ENDPOINT);
   }
 
   async getBarChartDataFromAPI(endPoint) {
@@ -37,9 +34,24 @@ class DashBoard extends Component {
     }
   }
 
+  async getTableDataFromAPI(endPoint) {
+    const responseData = await fetch(endPoint)
+        .then((response) => response.json())
+        .then((responseJson) => responseJson)
+        .catch((error) => console.error(error));
+
+    this.setState({
+      tableData: responseData
+    });
+  }
+
+  componentDidMount() {
+    this.getBarChartDataFromAPI(API_PLANETS_ENDPOINT);
+    this.getTableDataFromAPI(API_PLANETS_ENDPOINT);
+  }
 
   render() {
-    console.log(this.state.barChartData);
+    console.log(this.state.tableData);
     return (
       <div className="container">
         <div>
