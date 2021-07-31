@@ -51,7 +51,7 @@ function Table(props) {
             {renderTableHeader()}
           </thead>
           <tbody>
-            {props.data.results.map((planetData, row_i) => renderTableRow(planetData, row_i))}
+            {props.data.map((planetData, row_i) => renderTableRow(planetData, row_i))}
           </tbody>
         </table>
       </div>
