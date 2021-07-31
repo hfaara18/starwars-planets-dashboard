@@ -51,14 +51,13 @@ class DashBoard extends Component {
   }
 
   render() {
-    console.log(this.state.tableData);
     return (
       <div className="container">
         <div>
           <h1>Starwars Planets Dashboard</h1>
         </div>
         <BarChart data={this.state.barChartData} />
-        <Table />
+        <Table data={this.state.tableData} />
       </div>
     )
   }
