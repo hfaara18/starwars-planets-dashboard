@@ -2,6 +2,8 @@ import React from 'react';
 import { Bar } from 'react-chartjs-2';
 
 
+// a function to process retrieve data from
+// SWAPI into a format that can be used by Chart.js
 const processBarChartData = (barChartData) => {
   const processedBarChartData = {
     labels: barChartData.map((item) => item.name),
@@ -18,8 +20,10 @@ const processBarChartData = (barChartData) => {
 
 
 function BarChart(props) {
+  // processing the SWAPI data
   const data = processBarChartData(props.data);
 
+  // rendering the bar chart to the page
   return (
     <>
     <h3>Bar Chart of Planet Populations</h3>

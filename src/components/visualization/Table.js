@@ -1,14 +1,26 @@
 import React from 'react';
 
-const planetAttributes = ["name", "population", "rotation_period", "orbital_period", "diameter", "climate", "surface_water"];
+// the list of attribute to displau
+const planetAttributes = [
+  "name",
+  "population",
+  "rotation_period",
+  "orbital_period",
+  "diameter",
+  "climate",
+  "surface_water"];
 
 function Table(props) {
+  // a function that renders the columns headers for each columns
   const renderTableHeader = () => {
+    // processing the attribute names into more human-friendly text
     const headerStrings = planetAttributes.map((item) => {
       let attribute = item.replace("_", " ");
       attribute = attribute.replace(/^\w|\s\w/g, (c) => c.toUpperCase());
       return attribute;
     })
+
+    // rendering the headers to page
     return (
       <tr>
         { headerStrings.map((header, i) => {
@@ -18,6 +30,7 @@ function Table(props) {
     )
   }
 
+  // a functionn that renders a table row with planet data
   const renderTableRow = (planetData, row_i) => {
     return (
       <tr key={row_i}>
@@ -28,6 +41,7 @@ function Table(props) {
     );
   }
 
+  // a function that renders the entire data table
   const renderTable = () => {
     return (
       <div>
@@ -45,6 +59,7 @@ function Table(props) {
     )
   }
 
+  // handle the case for when the data isn't fetched yet
   if (props.data === null) {
     return null;
   }
